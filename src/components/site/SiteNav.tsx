@@ -20,11 +20,10 @@ export function SiteNav() {
   const [shared, setShared] = useState(false);
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--reading-font-size",
-      `${FONT_STEPS[fontIndex].value}%`,
-    );
+    const step = FONT_STEPS[fontIndex] ?? FONT_STEPS[1]!;
+    document.documentElement.style.setProperty("--reading-font-size", `${step.value}%`);
   }, [fontIndex]);
+
 
   useEffect(() => {
     if (!open) return;
