@@ -60,7 +60,7 @@ export function SiteNav() {
           >
             VPN
           </span>
-          <span className="truncate uppercase lg:hidden xl:inline">
+          <span className="truncate uppercase lg:hidden 2xl:inline">
             Apostas <span className="text-primary">&amp;</span> VPN
           </span>
         </a>
