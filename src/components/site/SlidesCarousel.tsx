@@ -49,6 +49,7 @@ export function SlidesCarousel() {
   return (
     <section id="slides" aria-labelledby="slides-title" className="px-4 py-16 sm:px-6 sm:py-24">
       <SectionHeading
+        id="slides-title"
         kicker="Entenda em 6 passos"
         title={
           <>
@@ -58,9 +59,6 @@ export function SlidesCarousel() {
         }
         subtitle="Deslize, use as setas do teclado ou os botões para avançar. Conteúdo informativo, sem passo a passo de uso."
       />
-      <h2 id="slides-title" className="sr-only">
-        Entenda o essencial sobre VPN, regras e riscos
-      </h2>
 
       <div
         ref={containerRef}

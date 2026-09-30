@@ -16,6 +16,7 @@ export function MythsSection() {
       className="border-y border-border/70 bg-card/30 px-4 py-16 sm:px-6 sm:py-24"
     >
       <SectionHeading
+        id="mitos-title"
         kicker="Separe o que é real"
         title={
           <>
@@ -25,9 +26,6 @@ export function MythsSection() {
         }
         subtitle="Toque em um cartão para ver a resposta. Afirmações comuns, explicadas de forma sóbria."
       />
-      <h2 id="mitos-title" className="sr-only">
-        Mitos e verdades
-      </h2>
 
       <ul className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {myths.map((myth, i) => {
