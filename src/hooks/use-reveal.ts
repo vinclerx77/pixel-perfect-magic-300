@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Adiciona a classe `is-visible` aos elementos `.reveal` quando eles entram na tela.
- * Respeita `prefers-reduced-motion` (o CSS já neutraliza a animação nesse caso).
+ * Respeita `prefers-reduced-motion` (o CSS neutraliza a animação nesse caso).
  */
 export function useRevealOnScroll() {
   useEffect(() => {
@@ -33,10 +33,12 @@ export function useRevealOnScroll() {
 
 /** Retorna o id da seção atualmente visível, para destacar o menu. */
 export function useActiveSection(ids: string[]) {
-  const [active, setActive] = useStateSafe(ids[0] ?? "");
+  const key = ids.join("|");
+  const [active, setActive] = useState(ids[0] ?? "");
 
   useEffect(() => {
-    const sections = ids
+    const sections = key
+      .split("|")
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
     if (sections.length === 0 || typeof IntersectionObserver === "undefined") return;
@@ -53,13 +55,7 @@ export function useActiveSection(ids: string[]) {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [ids, setActive]);
+  }, [key]);
 
   return active;
-}
-
-// Pequeno wrapper para manter o import de useState local ao arquivo.
-import { useState } from "react";
-function useStateSafe(initial: string) {
-  return useState(initial);
 }
