@@ -49,7 +49,7 @@ export function SiteNav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6">
         <a
           href="#inicio"
           className="flex min-w-0 items-center gap-2 text-sm font-extrabold tracking-tight"
@@ -60,10 +60,11 @@ export function SiteNav() {
           >
             VPN
           </span>
-          <span className="truncate uppercase">
+          <span className="truncate uppercase lg:hidden xl:inline">
             Apostas <span className="text-primary">&amp;</span> VPN
           </span>
         </a>
+
 
         <div className="flex shrink-0 items-center gap-1">
           <nav aria-label="Seções do site" className="hidden lg:block">
